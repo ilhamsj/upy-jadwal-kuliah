@@ -7,8 +7,14 @@
     <title>Course Info</title>
 </head>
 <body>
+    <nav>
+        <a href="/">Homepage</a>
+    </nav>
     <div class="container">
         @yield('content')
     </div>
+    <footer>
+        This is awesome
+    </footer>
 </body>
 </html>
