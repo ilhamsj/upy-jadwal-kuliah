@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('courses', 'CourseController');
+Route::resource('class_room', 'ClassRoomController');
