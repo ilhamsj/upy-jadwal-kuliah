@@ -87,7 +87,7 @@
                 <div class="links">
                     <a href="/courses">Course</a>
                     <a href="/class_room">Class Room</a>
-                    <a href="">Lecture</a>
+                    <a href="/lecture">Lecture</a>
                     <a href="">Class</a>
                 </div>
             </div>
