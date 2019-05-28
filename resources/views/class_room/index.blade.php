@@ -17,7 +17,7 @@
 
             <form action="{{ route('class_room.destroy', $class_room->room_id) }}" method="post">
                 @csrf
-                @method('DELETE');
+                @method('DELETE')
 
                 <button type="submit">delete</button>
             </form>
