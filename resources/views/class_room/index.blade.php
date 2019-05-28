@@ -7,7 +7,9 @@
     @foreach ($class_rooms as $class_room)
         <p>
             {{ $class_room->room_id }}
-            {{ $class_room->room_name }}
+            <a href="{{ route('class_room.show', $class_room->room_id) }}">
+                {{ $class_room->room_name }}
+            </a>
         </p>
     @endforeach
 

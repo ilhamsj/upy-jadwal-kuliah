@@ -53,7 +53,8 @@ class ClassRoomController extends Controller
      */
     public function show($id)
     {
-        //
+        $class_room = ClassRoom::find($id);
+        return view('class_room.show', compact('class_room'));
     }
 
     /**
