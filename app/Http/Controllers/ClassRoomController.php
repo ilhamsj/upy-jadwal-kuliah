@@ -65,7 +65,8 @@ class ClassRoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $class_room = ClassRoom::find($id);
+        return view('class_room.edit', compact('class_room'));
     }
 
     /**
@@ -77,7 +78,12 @@ class ClassRoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $class_room = ClassRoom::find($id);
+        $class_room->room_id = $request->get('room_id');
+        $class_room->room_name = $request->get('room_name');
+        $class_room->save();
+
+        return redirect('/class_room');
     }
 
     /**
@@ -88,6 +94,10 @@ class ClassRoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $class_room = ClassRoom::find($id);
+        $class_room->delete();
+
+        return redirect('/class_room');
+        
     }
 }
