@@ -14,7 +14,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('course.index');
+        $courses = Course::all();
+        return view('course.index', compact('courses'));
     }
 
     /**
@@ -64,7 +65,8 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::find($id);
+        return view('course.edit', compact('course'));
     }
 
     /**
@@ -76,7 +78,13 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $course = Course::find($id);
+        $course->course_id = $request->get('course_id');   
+        $course->course_name = $request->get('course_name');   
+        $course->course_sks = $request->get('course_sks');
+        $course->save();
+
+        return redirect('/courses');
     }
 
     /**
@@ -87,6 +95,9 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+        $course->delete();
+
+        return redirect('/courses');
     }
 }

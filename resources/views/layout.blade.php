@@ -9,6 +9,9 @@
 <body>
     <nav>
         <a href="/">Homepage</a>
+        <a href="/courses">Course</a>
+        <a href="/lecture">Lecture</a>
+        <a href="/class_room">Class Room</a>
     </nav>
     <div class="container">
         @yield('content')
