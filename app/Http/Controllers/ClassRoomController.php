@@ -14,7 +14,8 @@ class ClassRoomController extends Controller
      */
     public function index()
     {
-        return view('class_room.index');
+        $class_rooms = ClassRoom::all();
+        return view('class_room.index', compact('class_rooms'));
     }
 
     /**
@@ -41,7 +42,7 @@ class ClassRoomController extends Controller
         ]);
 
         $class_room->save();
-        return redirect('/');
+        return redirect('/class_room');
     }
 
     /**
