@@ -9,11 +9,12 @@
 </head>
 <body>
     <div class="container">
-        <nav>
-            <a href="/">Homepage</a>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="/">Homepage</a>
             <a href="/courses">Course</a>
             <a href="/lecture">Lecture</a>
             <a href="/class_room">Class Room</a>
+            <a href="/schedule">Jadwal Kuliah</a>
         </nav>
 
         @yield('content')
