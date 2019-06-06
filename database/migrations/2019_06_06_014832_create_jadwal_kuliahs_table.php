@@ -27,6 +27,6 @@ class CreateJadwalKuliahsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwal_kuliahs');
+        Schema::dropIfExists('jadwal_kuliah');
     }
 }
