@@ -13,7 +13,7 @@ class CreateJadwalKuliahsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jadwal_kuliahs', function (Blueprint $table) {
+        Schema::create('jadwal_kuliah', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_mata_kuliah')->index();
             $table->timestamps();

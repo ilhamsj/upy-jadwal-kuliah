@@ -13,7 +13,7 @@ class CreateMataKuliahsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mata_kuliahs', function (Blueprint $table) {
+        Schema::create('mata_kuliah', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('kd_mata_kuliah', 10)->unique();
             $table->string('nama_mata_kuliah', 30);

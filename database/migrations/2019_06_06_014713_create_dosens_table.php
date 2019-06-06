@@ -13,7 +13,7 @@ class CreateDosensTable extends Migration
      */
     public function up()
     {
-        Schema::create('dosens', function (Blueprint $table) {
+        Schema::create('dosen', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('kd_dosen', '12')->unique();
             $table->string('nama_dosen');
