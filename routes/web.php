@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('mata-kuliah', 'MataKuliahController');
-// Route::resource('ruangan', 'RuanganController');
-// Route::resource('dosen', 'DosenController');
+Route::resource('ruangan', 'RuanganController');
+Route::resource('dosen', 'DosenController');
 // Route::resource('jadwal', 'JadwalKuliahController');
 Auth::routes();
 
