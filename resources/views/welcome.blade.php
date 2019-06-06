@@ -89,6 +89,7 @@
                 </div>
 
                 <div class="links">
+                    <a href="/home">Home</a>
                     <a href="/mata-kuliah">Mata Kuliah</a>
                     <a href="/class_room">Ruang Kuliah</a>
                     <a href="/lecture">Dosen</a>
