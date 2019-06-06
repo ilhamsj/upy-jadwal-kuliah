@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MataKuliah;
+use App\Dosen;
+use App\Ruangan;
 
 class HomeController extends Controller
 {
@@ -25,6 +27,13 @@ class HomeController extends Controller
     public function index()
     {
         $makul = MataKuliah::all();
-        return view('home', ['makul' => $makul]);
+        $dosen = Dosen::all();
+        $ruangan = Ruangan::all();
+
+        return view('home', [
+            'makul' => $makul,
+            'dosen' => $dosen,
+            'ruangan' => $ruangan,
+            ]);
     }
 }

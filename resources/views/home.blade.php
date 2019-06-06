@@ -35,7 +35,11 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">Dosen</div>
-                <div class="card-body"></div>
+                <div class="card-body">
+                    @foreach ($dosen as $item)
+                        {{$item->nama_dosen}} <br/>
+                    @endforeach
+                </div>
             </div>
         </div>
         {{-- End Dosen --}}
@@ -44,7 +48,11 @@
         <div class="col">
                 <div class="card">
                     <div class="card-header">Ruang Kelas</div>
-                    <div class="card-body"></div>
+                    <div class="card-body">
+                        @foreach ($ruangan as $item)
+                            {{$item->nama_ruangan}} <br/>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         {{-- End Ruang Kelas --}}
