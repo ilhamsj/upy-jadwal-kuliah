@@ -61,6 +61,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            a:hover {
+                color: lightseagreen;
+            }
         </style>
     </head>
     <body>
