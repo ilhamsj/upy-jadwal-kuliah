@@ -81,14 +81,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    LaraKul
+                    Informasi Perkuliahan
                 </div>
 
                 <div class="links">
-                    <a href="/courses">Course</a>
-                    <a href="/class_room">Class Room</a>
-                    <a href="/lecture">Lecture</a>
-                    <a href="">Class</a>
+                    <a href="/mata-kuliah">Mata Kuliah</a>
+                    <a href="/class_room">Ruang Kuliah</a>
+                    <a href="/lecture">Dosen</a>
+                    <a href="">Jadwal</a>
                 </div>
             </div>
         </div>
