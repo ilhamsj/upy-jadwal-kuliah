@@ -10,6 +10,6 @@ class Schedule extends Model
     protected $fillable = ['course_id'];
 
     public function course() {
-        return $this->belongsTo('App\Schedule');
+        return $this->belongsTo('App\Course');
     }
 }

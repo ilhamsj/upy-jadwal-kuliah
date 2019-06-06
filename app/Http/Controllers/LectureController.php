@@ -14,7 +14,8 @@ class LectureController extends Controller
      */
     public function index()
     {
-        return view('lecture.index');
+        $lecture = Lecture::all();
+        return view('lecture.index', compact('lecture'));
     }
 
     /**
