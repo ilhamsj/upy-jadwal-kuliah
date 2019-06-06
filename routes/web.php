@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('courses', 'CourseController');
-Route::resource('class_room', 'ClassRoomController');
-Route::resource('lecture', 'LectureController');
-Route::resource('schedule', 'ScheduleController');
+Route::resource('mata-kuliah', 'MataKuliahController');
+// Route::resource('ruangan', 'RuanganController');
+// Route::resource('dosen', 'DosenController');
+// Route::resource('jadwal', 'JadwalKuliahController');
