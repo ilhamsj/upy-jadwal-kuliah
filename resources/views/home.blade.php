@@ -36,12 +36,16 @@
                             <td>{{$item->kd_mata_kuliah}}</td>
                             <td><a href="">{{$item->nama_mata_kuliah}}</a></td>
                             <td>{{$item->sks}}</td>
-                            <td><a href="mata-kuliah/{{$item->id}}/edit" class="btn btn-secondary btn-sm">Edit</a></td>
+                            <td>
+                                <a href="mata-kuliah/{{$item->id}}/edit" class="btn btn-secondary btn-sm">
+                                    E
+                                </a>
+                            </td>
                             <td>
                                 <form action="{{route('mata-kuliah.destroy', $item->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                    <button class="btn btn-danger btn-sm" type="submit">D</button>
                                 </form>
                             </td>
                         </tr>

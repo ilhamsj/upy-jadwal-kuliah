@@ -8,16 +8,22 @@
             <div class="card">
                 <div class="card-header">Create New Post</div>
                 <div class="card-body">
-                        <h1>Create Course</h1>
-
-                        <form method="post" action="{{route('mata-kuliah.store')}}">
+                        <form class="form-group" method="post" action="{{route('mata-kuliah.store')}}">
 
                             @csrf
-                            <input type="text" name="kd_mata_kuliah" placeholder="Kode Mata Kuliah" required> <br/>
-                            <input type="text" name="nama_mata_kuliah" placeholder="Nama Mata Kuliah" required> <br/>
-                            <input type="text" name="sks" placeholder="Jumlah SKS" required> <br/>
+                            <div class="form-group">
+                                <input type="text" name="kd_mata_kuliah" placeholder="Kode Mata Kuliah" class="form-control" required>
+                            </div>
 
-                            <button type="submit">Save</button>
+                            <div class="form-group">
+                                <input type="text" name="nama_mata_kuliah" placeholder="Nama Mata Kuliah" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="sks" placeholder="Jumlah SKS" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </form>
                 </div>
             </div>
