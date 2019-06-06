@@ -1,21 +1,27 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
-    <h1>Create Course</h1>
 
-    <form method="post" action="{{route('courses.store')}}">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Create New Post</div>
+                <div class="card-body">
+                        <h1>Create Course</h1>
 
-        @csrf
-        <label for="id">Course Code</label>
-        <input type="text" name="id"> <br/>
+                        <form method="post" action="{{route('mata-kuliah.store')}}">
 
-        <label for="name">Course Name</label>
-        <input type="text" name="name"> <br/>
+                            @csrf
+                            <input type="text" name="kd_mata_kuliah" placeholder="Kode Mata Kuliah" required> <br/>
+                            <input type="text" name="nama_mata_kuliah" placeholder="Nama Mata Kuliah" required> <br/>
+                            <input type="text" name="sks" placeholder="Jumlah SKS" required> <br/>
 
-        <label for="sks">Course SKS</label>
-        <input type="text" name="sks"> <br/>
-
-        <button type="submit">Save</button>
-    </form>
-
+                            <button type="submit">Save</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

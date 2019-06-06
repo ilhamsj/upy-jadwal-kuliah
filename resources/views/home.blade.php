@@ -4,16 +4,22 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 mb-4">
+            
+            @include('inc.alert')
+
              <div class="card">
                  <div class="card-header">Jadwak Kuliah</div>
-                 <div class="card-body"></div>
+                 <div class="card-body">
+                 </div>
              </div>
         </div>
 
         {{-- Mata Kuliah --}}
         <div class="col mb-4">
             <div class="card">
-                <div class="card-header">Mata Kuliah</div>
+                <div class="card-header">
+                    Mata Kuliah <a href="{{route('mata-kuliah.create')}}">Create New</a>
+                </div>
 
                 <div class="card-body">
                     <table class="table table-responsive">
@@ -21,7 +27,8 @@
                             <th>Kode</th>
                             <th>Mata Kuliah</th>
                             <th>SKS</th>
-                            <th>Delete</th>
+                            <th>E</th>
+                            <th>D</th>
                         </tr>
                         
                         @foreach ($makul as $item)
@@ -29,7 +36,14 @@
                             <td>{{$item->kd_mata_kuliah}}</td>
                             <td><a href="">{{$item->nama_mata_kuliah}}</a></td>
                             <td>{{$item->sks}}</td>
-                            <td><a href=""> Delete</a></td>
+                            <td><a href="mata-kuliah/{{$item->id}}/edit" class="btn btn-secondary btn-sm">Edit</a></td>
+                            <td>
+                                <form action="{{route('mata-kuliah.destroy', $item->id)}}" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                     </table>

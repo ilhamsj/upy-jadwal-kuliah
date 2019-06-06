@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\MataKuliah;
 
 class MataKuliahController extends Controller
 {
@@ -23,7 +24,7 @@ class MataKuliahController extends Controller
      */
     public function create()
     {
-        //
+        return view('mata-kuliah.create');
     }
 
     /**
@@ -34,7 +35,14 @@ class MataKuliahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $makul = new MataKuliah([
+            'kd_mata_kuliah' => $request->get('kd_mata_kuliah'),
+            'nama_mata_kuliah' => $request->get('nama_mata_kuliah'),
+            'sks' => $request->get('sks')
+        ]);
+
+        $makul->save();
+        return redirect('/home')->with("success", "Mata Kuliah Berhasil Ditambahkan");
     }
 
     /**
@@ -56,7 +64,8 @@ class MataKuliahController extends Controller
      */
     public function edit($id)
     {
-        //
+        $makul = MataKuliah::find($id);
+        return view('mata-kuliah.edit')->with('makul', $makul);
     }
 
     /**
@@ -67,8 +76,14 @@ class MataKuliahController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $makul = MataKuliah::find($id);
+        $makul->kd_mata_kuliah      = $request->get('kode');
+        $makul->nama_mata_kuliah    = $request->get('nama');
+        $makul->sks                 = $request->get('sks');
+
+        $makul->save();
+        return redirect('/home')->with("success", "Mata Kuliah Berhasil di update");
     }
 
     /**
@@ -79,6 +94,9 @@ class MataKuliahController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $makul = MataKuliah::find($id);
+        $makul->delete();
+
+        return redirect('/home')->with('success', 'Mata Kuliah berhasil dihapus');
     }
 }
