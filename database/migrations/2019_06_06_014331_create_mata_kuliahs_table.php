@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClassRoomsTable extends Migration
+class CreateMataKuliahsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateClassRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('class_rooms', function (Blueprint $table) {
+        Schema::create('mata_kuliahs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kd_ruangan', '12')->unique();
-            $table->string('nama_ruangan', '30');
+            $table->string('kd_mata_kuliah', 10)->unique();
+            $table->string('nama_mata_kuliah', 30);
+            $table->integer('sks');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateClassRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('class_rooms');
+        Schema::dropIfExists('mata_kuliahs');
     }
 }
