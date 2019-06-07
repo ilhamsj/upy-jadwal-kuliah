@@ -19,6 +19,7 @@ class CreateJadwalKuliahsTable extends Migration
             $table->integer('id_dosen')->index();
             $table->integer('id_ruangan')->index();
             $table->string('hari', 20);
+            // $table->enum('hari', ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu']);	
             $table->timestamps();
         });
     }

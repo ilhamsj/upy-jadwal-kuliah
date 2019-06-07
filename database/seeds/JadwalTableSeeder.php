@@ -12,6 +12,6 @@ class JadwalTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(JadwalKuliah::class, 10)->create();
+        factory(JadwalKuliah::class, 5)->create();
     }
 }

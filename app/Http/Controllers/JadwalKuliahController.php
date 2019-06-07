@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\JadwalKuliah;
 use App\MataKuliah;
+use App\Dosen;
+use App\Ruangan;
 
 class JadwalKuliahController extends Controller
 {
@@ -15,12 +17,7 @@ class JadwalKuliahController extends Controller
      */
     public function index()
     {
-
-        $jadwal = JadwalKuliah::with('makul')->get();
-        // $jadwal = JadwalKuliah::all();
-        // $jadwal = JadwalKuliah::find(1)->makul;
-        // dd($jadwal);
-
+        $jadwal = JadwalKuliah::with(['makul', 'dosen', 'ruangan'])->get();
 
         return view('jadwal.index', [
             'jadwal' => $jadwal,
@@ -34,7 +31,15 @@ class JadwalKuliahController extends Controller
      */
     public function create()
     {
-        return view('jadwal.create');
+        $makul      = MataKuliah::all();
+        $dosen      = Dosen::all();
+        $ruangan    = Ruangan::all();
+
+        return view('jadwal.create', [
+            'makul'     => $makul,
+            'dosen'     => $dosen,
+            'ruangan'   => $ruangan
+        ]);
     }
 
     /**
@@ -46,9 +51,11 @@ class JadwalKuliahController extends Controller
     public function store(Request $request)
     {
         $jadwal = new JadwalKuliah([
-            'id_mata_kuliah' => $request->get('id')
+            'id_mata_kuliah'    => $request->get('id_makul'),
+            'id_dosen'          => $request->get('id_dosen'),
+            'id_ruangan'        => $request->get('id_ruangan'),
+            'hari'              => $request->get('hari'),
         ]);
-
         $jadwal->save();
 
         return redirect('/jadwal');
