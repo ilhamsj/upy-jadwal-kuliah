@@ -12,7 +12,7 @@ class JadwalKuliah extends Model
         'id_mata_kuliah'
     ];
 
-    public function MataKuliah(){
-        return $this->belongsTo('App\MataKuliah');
+    public function makul(){
+        return $this->belongsTo(MataKuliah::class, 'id_mata_kuliah');
     }
 }

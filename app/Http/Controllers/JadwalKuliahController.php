@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\JadwalKuliah;
+use App\MataKuliah;
 
 class JadwalKuliahController extends Controller
 {
@@ -14,7 +15,12 @@ class JadwalKuliahController extends Controller
      */
     public function index()
     {
-        $jadwal = JadwalKuliah::all();
+
+        $jadwal = JadwalKuliah::with('makul')->get();
+        // $jadwal = JadwalKuliah::all();
+        // $jadwal = JadwalKuliah::find(1)->makul;
+        // dd($jadwal);
+
 
         return view('jadwal.index', [
             'jadwal' => $jadwal,
