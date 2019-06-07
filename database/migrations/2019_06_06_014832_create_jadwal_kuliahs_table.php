@@ -16,6 +16,9 @@ class CreateJadwalKuliahsTable extends Migration
         Schema::create('jadwal_kuliah', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_mata_kuliah')->index();
+            $table->integer('id_dosen')->index();
+            $table->integer('id_ruangan')->index();
+            $table->string('hari', 20);
             $table->timestamps();
         });
     }

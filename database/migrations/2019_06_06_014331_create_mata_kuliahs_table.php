@@ -15,7 +15,7 @@ class CreateMataKuliahsTable extends Migration
     {
         Schema::create('mata_kuliah', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kd_mata_kuliah', 10);
+            $table->string('kd_mata_kuliah', 10)->unique();
             $table->string('nama_mata_kuliah', 30);
             $table->integer('sks');
             $table->timestamps();
