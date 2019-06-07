@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Dosen;
 
 class DosenController extends Controller
 {
@@ -23,7 +24,7 @@ class DosenController extends Controller
      */
     public function create()
     {
-        //
+        return view('dosen.create');
     }
 
     /**
@@ -34,7 +35,13 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dosen = new Dosen([
+            'kd_dosen' => $request->get('kode'),
+            'nama_dosen' => $request->get('nama')
+        ]);
+
+        $dosen->save();
+        return redirect('/home')->with("success", "Dosen Berhasil Ditambahkan");
     }
 
     /**
@@ -56,7 +63,8 @@ class DosenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dosen = Dosen::find($id);
+        return view('dosen.edit')->with('dosen', $dosen);
     }
 
     /**
@@ -68,7 +76,11 @@ class DosenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dosen = Dosen::find($id);
+        $dosen->kd_dosen = $request->get('kode'); 
+        $dosen->nama_dosen = $request->get('nama'); 
+        $dosen->save();
+        return redirect('/home')->with('success', 'Update berhasil');
     }
 
     /**
@@ -79,6 +91,8 @@ class DosenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dosen = Dosen::find($id);
+        $dosen->delete();
+        return redirect('/home')->with('sucess', 'Dosen berhasil dihapus');
     }
 }

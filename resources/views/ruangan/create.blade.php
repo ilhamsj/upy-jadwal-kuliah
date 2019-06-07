@@ -1,14 +1,22 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
-    <h1>Add new class room</h1>
 
-    <form method="POST" action="{{ route('class_room.store') }}">
-
-        @csrf
-        <input type="text" name="room_id">
-        <input type="text" name="room_name">
-
-        <button type="submit">save</button>
-    </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Tambah Ruangan</div>
+                <div class="card-body">
+                    <form action="{{ route('ruangan.store') }}" method="post">
+                        @csrf
+                        <input type="text" name="kode" placeholder="Kode ruangan">
+                        <input type="text" name="nama" placeholder="Nama ruangan">
+                        <button type="submit">save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

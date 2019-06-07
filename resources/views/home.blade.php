@@ -22,33 +22,22 @@
                 </div>
 
                 <div class="card-body">
-                    <table class="table table-responsive">
-                        <tr>
-                            <th>Kode</th>
-                            <th>Mata Kuliah</th>
-                            <th>SKS</th>
-                            <th>E</th>
-                            <th>D</th>
-                        </tr>
-                        
                         @foreach ($makul as $item)
-                        <tr>
-                            <td>{{$item->kd_mata_kuliah}}</td>
-                            <td><a href="">{{$item->nama_mata_kuliah}}</a></td>
-                            <td>{{$item->sks}}</td>
-                            <td>
-                                <a href="mata-kuliah/{{$item->id}}/edit" class="btn btn-secondary btn-sm">
-                                    E
-                                </a>
-                            </td>
-                            <td>
-                                <form action="{{route('mata-kuliah.destroy', $item->id)}}" method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-danger btn-sm" type="submit">D</button>
-                                </form>
-                            </td>
-                        </tr>
+                        <div>
+                            <h3>{{$item->nama_mata_kuliah}}</h3>
+                            {{$item->sks}} SKS <br/>
+                            <a href="{{route('mata-kuliah.edit', $item->id)}}" class="btn btn-secondary btn-sm d-inline">
+                                Edit
+                            </a>
+                            {{-- <a href="javascript:$('#form_id').submit()">Delete</a> --}}
+
+                            <form action="{{route('mata-kuliah.destroy', $item->id)}}" id="form_id" method="post" class=" d-inline">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
+                            </form>
+                            <hr/>
+                        </div>
                         @endforeach
                     </table>
                 </div>
@@ -59,10 +48,21 @@
         {{-- Dosen --}}
         <div class="col">
             <div class="card">
-                <div class="card-header">Dosen</div>
+                <div class="card-header">Dosen <a href="{{route('dosen.create')}}">Create New</a></div>
                 <div class="card-body">
                     @foreach ($dosen as $item)
-                        {{$item->nama_dosen}} <br/>
+                        <div>
+                            <h3>{{$item->nama_dosen}}</h3>
+                            <a href="{{route('dosen.edit', $item->id)}}" class="d-inline btn btn-secondary btn-sm">
+                                Edit
+                            </a>
+                            <form action="{{route('dosen.destroy', $item->id)}}" id="form_delete_dosen" method="post" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
+                            </form>
+                            <hr/>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -70,12 +70,24 @@
         {{-- End Dosen --}}
 
         {{-- Ruang Kelas --}}
-        <div class="col">
+        <div class="col mb-4">
                 <div class="card">
-                    <div class="card-header">Ruang Kelas</div>
+                    <div class="card-header">Ruang Kelas <a href="{{route('ruangan.create')}}">Create New</a></div>
                     <div class="card-body">
                         @foreach ($ruangan as $item)
-                            {{$item->nama_ruangan}} <br/>
+                        <div>
+                            <h3>{{$item->nama_ruangan}}</h3>
+                            <a href="ruangan/{{$item->id}}/edit" class="btn btn-secondary btn-sm d-inline">
+                                Edit
+                            </a>
+
+                            <form class="d-inline" action="{{route('ruangan.destroy', $item->id)}}" id="form_delete_ruangan" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
+                            </form>
+                            <hr/>
+                        </div>
                         @endforeach
                     </div>
                 </div>

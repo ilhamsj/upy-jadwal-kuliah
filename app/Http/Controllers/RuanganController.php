@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ruangan;
 
 class RuanganController extends Controller
 {
@@ -23,7 +24,7 @@ class RuanganController extends Controller
      */
     public function create()
     {
-        //
+        return view('ruangan.create');
     }
 
     /**
@@ -34,7 +35,13 @@ class RuanganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ruangan = new Ruangan([
+            'kd_ruangan' => $request->get('kode'),
+            'nama_ruangan' => $request->get('nama')
+        ]);
+
+        $ruangan->save(); 
+        return redirect('/home')->with('success', 'Ruangan berhasil ditambahkan');
     }
 
     /**
@@ -56,7 +63,8 @@ class RuanganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ruangan = Ruangan::find($id);
+        return view('ruangan.edit')->with('ruangan', $ruangan);
     }
 
     /**
@@ -68,7 +76,12 @@ class RuanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ruangan = Ruangan::find($id);
+        $ruangan->kd_ruangan = $request->get('kode');
+        $ruangan->nama_ruangan = $request->get('nama');
+
+        $ruangan->save();
+        return redirect('/home')->with('success', 'Ruangan berhasil di update');
     }
 
     /**
@@ -79,6 +92,9 @@ class RuanganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ruangan = Ruangan::find($id);
+        $ruangan->delete();
+
+        return redirect('/home')->with('success', 'Berhasil dihapus');
     }
 }
