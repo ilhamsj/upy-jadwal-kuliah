@@ -10,6 +10,8 @@
              <div class="card">
                  <div class="card-header">Jadwak Kuliah</div>
                  <div class="card-body">
+                     <a href="/jadwal">Jadwal Kuliah</a>
+                     <a href="/jadwal/create">Tambah Jadwal Kuliah</a>
                  </div>
              </div>
         </div>
