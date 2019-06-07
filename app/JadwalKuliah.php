@@ -11,4 +11,8 @@ class JadwalKuliah extends Model
     protected $fillable = [
         'id_mata_kuliah'
     ];
+
+    public function MataKuliah(){
+        return $this->belongsTo('App\MataKuliah');
+    }
 }

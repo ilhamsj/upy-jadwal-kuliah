@@ -11,4 +11,8 @@ class MataKuliah extends Model
     protected $fillable = [
         'kd_mata_kuliah', 'nama_mata_kuliah', 'sks'
     ];
+
+    public function JadwalKuliah(){
+        return $this->hasMany('App\JadwalKuliah');
+    }
 }
