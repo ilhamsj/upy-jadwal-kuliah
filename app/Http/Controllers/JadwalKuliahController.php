@@ -13,7 +13,7 @@ class JadwalKuliahController extends Controller
      */
     public function index()
     {
-        //
+        return view('jadwal.index');
     }
 
     /**
