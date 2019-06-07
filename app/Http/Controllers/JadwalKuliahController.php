@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\JadwalKuliah;
 
 class JadwalKuliahController extends Controller
 {
@@ -13,7 +14,11 @@ class JadwalKuliahController extends Controller
      */
     public function index()
     {
-        return view('jadwal.index');
+        $jadwal = JadwalKuliah::all();
+
+        return view('jadwal.index', [
+            'jadwal' => $jadwal,
+        ]);
     }
 
     /**
@@ -23,7 +28,7 @@ class JadwalKuliahController extends Controller
      */
     public function create()
     {
-        //
+        return view('jadwal.create');
     }
 
     /**
@@ -34,7 +39,13 @@ class JadwalKuliahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jadwal = new JadwalKuliah([
+            'id_mata_kuliah' => $request->get('id')
+        ]);
+
+        $jadwal->save();
+
+        return redirect('/jadwal');
     }
 
     /**
@@ -56,7 +67,10 @@ class JadwalKuliahController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jadwal = JadwalKuliah::find($id);
+        return view('jadwal.edit', [
+            'jadwal' => $jadwal
+        ]);
     }
 
     /**
@@ -68,7 +82,11 @@ class JadwalKuliahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $jadwal = JadwalKuliah::find($id);
+        $jadwal->id_mata_kuliah = $request->get('id');
+        $jadwal->save();
+
+        return redirect('/jadwal')->with('success', 'Jadwal berhasil di update');
     }
 
     /**
@@ -79,6 +97,8 @@ class JadwalKuliahController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jadwal = JadwalKuliah::find($id);
+        $jadwal->delete();
+        return redirect('/jadwal')->with('success', 'Jadwal berhasil dihapus');
     }
 }
