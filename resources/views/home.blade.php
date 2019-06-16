@@ -3,21 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12 mb-4">
-            
-            @include('inc.alert')
-
-             <div class="card">
-                 <div class="card-header">Jadwak Kuliah</div>
-                 <div class="card-body">
-                     <a href="/jadwal">Jadwal Kuliah</a>
-                     <a href="/jadwal/create">Tambah Jadwal Kuliah</a>
-                 </div>
-             </div>
-        </div>
-
+        @include('inc.alert')
+        
         {{-- Mata Kuliah --}}
-        <div class="col mb-4">
+        <div class="col-sm-4 mb-4">
             <div class="card">
                 <div class="card-header">
                     Mata Kuliah <a href="{{route('mata-kuliah.create')}}">Create New</a>
@@ -48,7 +37,7 @@
         {{-- End Mata Kuliah --}}
 
         {{-- Dosen --}}
-        <div class="col">
+        <div class="col-sm-4 mb-4">
             <div class="card">
                 <div class="card-header">Dosen <a href="{{route('dosen.create')}}">Create New</a></div>
                 <div class="card-body">

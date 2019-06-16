@@ -80,9 +80,16 @@ class JadwalKuliahController extends Controller
      */
     public function edit($id)
     {
+        $makul      = MataKuliah::all();
+        $dosen      = Dosen::all();
+        $ruangan    = Ruangan::all();
+        
         $jadwal = JadwalKuliah::find($id);
         return view('jadwal.edit', [
-            'jadwal' => $jadwal
+            'jadwal'    => $jadwal,
+            'makul'     => $makul,
+            'dosen'     => $dosen,
+            'ruangan'   => $ruangan
         ]);
     }
 

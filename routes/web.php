@@ -21,4 +21,5 @@ Route::resource('dosen', 'DosenController');
 Route::resource('jadwal', 'JadwalKuliahController');
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'JadwalKuliahController@index');

@@ -53,7 +53,10 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="/jadwal">Jadwal Kuliah</a>
+                                <a class="nav-link" href="/home">Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Jadwal</a>
                             </li>
                             
                             <li class="nav-item dropdown">
