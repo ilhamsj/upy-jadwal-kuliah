@@ -8,27 +8,40 @@
             <div class="card">
                 <div class="card-header">Tambah dosen</div>
                 <div class="card-body">
-
                     <form action="{{ route('jadwal.update', $jadwal->id) }}" method="post">
                         @csrf
                         @method('PATCH')
-
+                        
                         <div class="form-group">
-                            <input type="text" name="id" class="form-control" value="{{$jadwal->id_mata_kuliah}}" >
+                            <label for="id_makul">Mata Kuliah</label>
+                            <select name="id_makul" id="" class="form-control">
+                                @foreach ($makul as $item)
+                                    <option value="{{$item->id}}">{{$item->nama_mata_kuliah}} - {{$item->sks}} SKS</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="id" class="form-control" value="{{$jadwal->id_dosen}}" >
+                            <label for="id_dosen">Dosen</label>
+                            <select name="id_dosen" id="" class="form-control">
+                                @foreach ($dosen as $item)
+                                    <option value="{{$item->id}}">{{$item->nama_dosen}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="id" class="form-control" value="{{$jadwal->id_ruangan}}" >
+                            <label for="id_ruangan">Ruangan</label>
+                            <select name="id_ruangan" id="" class="form-control">
+                                @foreach ($ruangan as $item)
+                                    <option value="{{$item->id}}">{{$item->nama_ruangan}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label for="hari">Hari</label>
                             <select name="hari" id="" class="form-control">
-                                <option value="{{$jadwal->hari}}">{{$jadwal->hari}}</option>
                                 <option value="senin">Senin</option>
                                 <option value="selasa">Selasa</option>
                                 <option value="rabu">Rabu</option>
@@ -37,9 +50,9 @@
                                 <option value="sabtu">Sabtu</option>
                             </select>
                         </div>
+
                         <button type="submit" class="btn btn-primary">save</button>
                     </form>
-
                 </div>
             </div>
         </div>
