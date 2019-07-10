@@ -48,6 +48,7 @@
 
                         @php
                             $day = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',];
+                            $status = ['masuk', 'libur', 'tugas'];
                         @endphp
 
                         <div class="form-group">
@@ -60,6 +61,16 @@
                             </select>
                         </div>
  
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select name="status" class="form-control">
+                                <option value="{{ $jadwal->status }}" selected>{{ $jadwal->status }}</option>
+                                @for ($i = 0; $i < count($status); $i++)
+                                    <option value="{{ $status[$i] }}">{{ $status[$i] }}</option>
+                                @endfor
+                            </select>
+                        </div>
+     
                         <button type="submit" class="btn btn-success btn-block">save</button>
                     </form>
                 </div>

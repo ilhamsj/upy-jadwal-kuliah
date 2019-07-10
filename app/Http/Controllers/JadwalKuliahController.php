@@ -57,15 +57,17 @@ class JadwalKuliahController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->pukul);
         $jadwal = new JadwalKuliah([
             'id_mata_kuliah'    => $request->get('id_makul'),
             'id_dosen'          => $request->get('id_dosen'),
             'id_ruangan'        => $request->get('id_ruangan'),
             'hari'              => $request->get('hari'),
+            'pukul'             => $request->get('pukul'),
         ]);
         $jadwal->save();
 
-        return redirect('/jadwal');
+        return redirect(route('jadwal.index'));
     }
 
     /**
@@ -109,11 +111,13 @@ class JadwalKuliahController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request->pukul);
         $jadwal = JadwalKuliah::find($id);
         $jadwal->id_mata_kuliah = $request->id_makul;
         $jadwal->id_dosen = $request->id_dosen;
         $jadwal->id_ruangan = $request->id_ruangan;
         $jadwal->hari = $request->hari;
+        $jadwal->status = $request->status;
         $jadwal->save();
 
         return redirect(route('jadwal.index'))->with('success', 'Jadwal berhasil di update');

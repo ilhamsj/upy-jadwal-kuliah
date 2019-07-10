@@ -4,15 +4,17 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             {{-- table-hover --}}
-            <table class="table table-striped table-responsive">
+            <table class="table table-striped">
                 <tr>
                     <td>Hari</td>
                     <td>Mata Kuliah</td>
                     <td>SKS</td>
                     <td>Dosen</td>
                     <td>Ruangan</td>
+                    <td>Waktu</td>
+                    <td>Status</td>
                     <td>Created at</td>
                     @auth
                         <td>
@@ -29,6 +31,8 @@
                     <td>{{$item->makul->sks}}</td>
                     <td>{{$item->dosen->nama_dosen}}</td>
                     <td>{{$item->ruangan->nama_ruangan}}</td>
+                    <td>{{$item->pukul}}</td>
+                    <td>{{$item->status}}</td>
                     <td>{{$item->created_at->format('d/m/Y')}}</td>
 
                     @auth

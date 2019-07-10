@@ -20,6 +20,8 @@ class CreateJadwalKuliahsTable extends Migration
             $table->integer('id_ruangan');#->index();
             $table->string('hari', 20);
             // $table->enum('hari', ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu']);	
+            $table->time('pukul');
+            $table->enum('status', ['libur', 'masuk', 'tugas'])->default('masuk');
             $table->timestamps();
         });
     }

@@ -39,18 +39,21 @@
 
                         @php
                             $day = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',];
-                            $hari = [ 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu', 'Minggu',];
                         @endphp
 
                         <div class="form-group">
                             <label for="hari">Hari</label>
-                            <select name="hari" id="" class="form-control">
+                            <select name="hari" class="form-control">
                                 @for ($i = 0; $i < count($day); $i++)
                                     <option value="{{ $day[$i] }}">{{ $day[$i] }}</option>
                                 @endfor
                             </select>
                         </div>
-
+                        <div class="form-group">
+                            <label for="pukul">Waktu Kuliah</label>
+                            <input type="time" name="pukul" class="form-control" required>
+                        </div>
+                        
                         <button type="submit" class="btn btn-primary">save</button>
                     </form>
                 </div>

@@ -12,7 +12,10 @@ class JadwalKuliah extends Model
         'id_mata_kuliah', 
         'id_dosen',
         'id_ruangan',
-        'hari'
+        'hari',
+        'pukul',
+        'status',
+        'kelas',
     ];
 
     public function makul(){
