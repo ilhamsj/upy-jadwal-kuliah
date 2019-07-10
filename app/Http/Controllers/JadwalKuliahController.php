@@ -7,6 +7,8 @@ use App\JadwalKuliah;
 use App\MataKuliah;
 use App\Dosen;
 use App\Ruangan;
+use Carbon\Carbon;
+
 
 class JadwalKuliahController extends Controller
 {
@@ -17,7 +19,12 @@ class JadwalKuliahController extends Controller
      */
     public function index()
     {
-        $jadwal = JadwalKuliah::with(['makul', 'dosen', 'ruangan'])->get();
+        // $date = Carbon::now()->toDateTimeString();
+        // $date = Carbon::now()->toRfc850String();
+        // $date = Carbon::now();
+        $date = Carbon::today()->isoFormat('dddd');
+        // dd($date);
+        $jadwal = JadwalKuliah::with(['makul', 'dosen', 'ruangan'])->where('hari',  date('l'))->get();
 
         return view('jadwal.index', [
             'jadwal' => $jadwal,

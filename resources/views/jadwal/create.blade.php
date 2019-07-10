@@ -37,15 +37,17 @@
                             </select>
                         </div>
 
+                        @php
+                            $day = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',];
+                            $hari = [ 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu', 'Minggu',];
+                        @endphp
+
                         <div class="form-group">
                             <label for="hari">Hari</label>
                             <select name="hari" id="" class="form-control">
-                                <option value="senin">Senin</option>
-                                <option value="selasa">Selasa</option>
-                                <option value="rabu">Rabu</option>
-                                <option value="kamis">Kamis</option>
-                                <option value="jum'at">Jum'at</option>
-                                <option value="sabtu">Sabtu</option>
+                                @for ($i = 0; $i < count($day); $i++)
+                                    <option value="{{ $day[$i] }}">{{ $day[$i] }}</option>
+                                @endfor
                             </select>
                         </div>
 
