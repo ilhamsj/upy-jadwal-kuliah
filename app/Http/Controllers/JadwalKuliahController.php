@@ -109,11 +109,11 @@ class JadwalKuliahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $jadwal = JadwalKuliah::find($id);
-        $jadwal->id_mata_kuliah = $request->get('id');
-        $jadwal->save();
+        // $jadwal = JadwalKuliah::find($id);
+        // $jadwal->id_mata_kuliah = $request->id_makul;
+        // $jadwal->save();
 
-        return redirect('/jadwal')->with('success', 'Jadwal berhasil di update');
+        return redirect(route('jadwal.index'))->with('success', 'Jadwal berhasil di update');
     }
 
     /**
@@ -126,6 +126,6 @@ class JadwalKuliahController extends Controller
     {
         $jadwal = JadwalKuliah::find($id);
         $jadwal->delete();
-        return redirect('/jadwal')->with('success', 'Jadwal berhasil dihapus');
+        return redirect(route('jadwal.index'))->with('success', 'Jadwal berhasil dihapus');
     }
 }

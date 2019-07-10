@@ -5,41 +5,52 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            {{-- <div class="card">
-                <div class="card-body"> --}}
-                    <table class="table table-responsive table-hover">
-                        <tr>
-                            <th>Hari</th>
-                            <th>Mata Kuliah</th>
-                            <th>SKS</th>
-                            <th>Dosen</th>
-                            <th>Ruangan</th>
-                            <th colspan="2"><a href="/jadwal/create" class="d-inline btn btn-primary btn-sm">Add new</a></th>
-                        </tr>
+            {{-- table-hover --}}
+            <table class="table table-bordered">
+                <tr>
+                    <td>Hari</td>
+                    <td>Mata Kuliah</td>
+                    <td>SKS</td>
+                    <td>Dosen</td>
+                    <td>Ruangan</td>
+                    @auth
+                        <td>
+                            <a href=" {{ route('jadwal.create') }}">Add new</a>
+                        </td>
+                    @endauth
+                </tr>
 
-                        
-                        @foreach ($jadwal as $item)
-                        <tr>
-                            <td>{{$item->hari}}</td>
-                            <td>{{$item->makul->nama_mata_kuliah}}</td>
-                            <td>{{$item->makul->sks}}</td>
-                            <td>{{$item->dosen->nama_dosen}}</td>
-                            <td>{{$item->ruangan->nama_ruangan}}</td>
+                
+                @foreach ($jadwal as $item)
+                <tr>
+                    <td>{{$item->hari}}</td>
+                    <td>{{$item->makul->nama_mata_kuliah}}</td>
+                    <td>{{$item->makul->sks}}</td>
+                    <td>{{$item->dosen->nama_dosen}}</td>
+                    <td>{{$item->ruangan->nama_ruangan}}</td>
 
-                            <td><a href="{{route('jadwal.edit', $item->id)}}" class="btn btn-secondary btn-sm d-inline">Edit</a></td>
-                            <td>
+                    @auth
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Details
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <a href="{{route('jadwal.edit', $item->id)}}" class="dropdown-item">Edit</a>
                                 <form action="{{route('jadwal.destroy', $item->id)}}" method="post" class="d-inline">
                                     @csrf   
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-warning btn-sm">Hapus</button>
+                                    <button type="submit" class="dropdown-item">Hapus</button>
                                 </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                        
-                    </table>
-                {{-- </div>
-            </div> --}}
+                            </div>
+                        </div>
+                    </td>
+                    @endauth
+
+                </tr>
+                @endforeach
+                
+            </table>
         </div>
     </div>
 </div>

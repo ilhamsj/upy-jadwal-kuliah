@@ -42,7 +42,7 @@ class MataKuliahController extends Controller
         ]);
 
         $makul->save();
-        return redirect('/home')->with("success", "Mata Kuliah Berhasil Ditambahkan");
+        return redirect(route('home'))->with("success", "Mata Kuliah Berhasil Ditambahkan");
     }
 
     /**
@@ -83,7 +83,7 @@ class MataKuliahController extends Controller
         $makul->sks                 = $request->get('sks');
 
         $makul->save();
-        return redirect('/home')->with("success", "Mata Kuliah Berhasil di update");
+        return redirect(route('home'))->with("success", "Mata Kuliah Berhasil di update");
     }
 
     /**
@@ -97,6 +97,6 @@ class MataKuliahController extends Controller
         $makul = MataKuliah::find($id);
         $makul->delete();
 
-        return redirect('/home')->with('success', 'Mata Kuliah berhasil dihapus');
+        return redirect(route('home'))->with('success', 'Mata Kuliah berhasil dihapus');
     }
 }

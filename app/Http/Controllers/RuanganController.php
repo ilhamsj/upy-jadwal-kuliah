@@ -41,7 +41,7 @@ class RuanganController extends Controller
         ]);
 
         $ruangan->save(); 
-        return redirect('/home')->with('success', 'Ruangan berhasil ditambahkan');
+        return redirect(route('home'))->with('success', 'Ruangan berhasil ditambahkan');
     }
 
     /**
@@ -81,7 +81,7 @@ class RuanganController extends Controller
         $ruangan->nama_ruangan = $request->get('nama');
 
         $ruangan->save();
-        return redirect('/home')->with('success', 'Ruangan berhasil di update');
+        return redirect(route('home'))->with('success', 'Ruangan berhasil di update');
     }
 
     /**
@@ -95,6 +95,6 @@ class RuanganController extends Controller
         $ruangan = Ruangan::find($id);
         $ruangan->delete();
 
-        return redirect('/home')->with('success', 'Berhasil dihapus');
+        return redirect(route('home'))->with('success', 'Berhasil dihapus');
     }
 }

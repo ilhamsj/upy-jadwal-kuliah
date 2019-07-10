@@ -41,7 +41,7 @@ class DosenController extends Controller
         ]);
 
         $dosen->save();
-        return redirect('/home')->with("success", "Dosen Berhasil Ditambahkan");
+        return redirect(route('home'))->with("success", "Dosen Berhasil Ditambahkan");
     }
 
     /**
@@ -80,7 +80,7 @@ class DosenController extends Controller
         $dosen->kd_dosen = $request->get('kode'); 
         $dosen->nama_dosen = $request->get('nama'); 
         $dosen->save();
-        return redirect('/home')->with('success', 'Update berhasil');
+        return redirect(route('home'))->with('success', 'Update berhasil');
     }
 
     /**
@@ -93,6 +93,6 @@ class DosenController extends Controller
     {
         $dosen = Dosen::find($id);
         $dosen->delete();
-        return redirect('/home')->with('sucess', 'Dosen berhasil dihapus');
+        return redirect(route('home'))->with('sucess', 'Dosen berhasil dihapus');
     }
 }
