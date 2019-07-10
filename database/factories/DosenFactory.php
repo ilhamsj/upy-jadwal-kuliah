@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Dosen::class, function (Faker $faker) {
     return [
-        'kd_dosen' => $faker->text($maxNbChars = 5),
+        'kd_dosen' => $faker->safeColorName,
         'nama_dosen' => $faker->name
     ];
 });

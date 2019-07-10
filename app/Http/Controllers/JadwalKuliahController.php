@@ -109,9 +109,12 @@ class JadwalKuliahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $jadwal = JadwalKuliah::find($id);
-        // $jadwal->id_mata_kuliah = $request->id_makul;
-        // $jadwal->save();
+        $jadwal = JadwalKuliah::find($id);
+        $jadwal->id_mata_kuliah = $request->id_makul;
+        $jadwal->id_dosen = $request->id_dosen;
+        $jadwal->id_ruangan = $request->id_ruangan;
+        $jadwal->hari = $request->hari;
+        $jadwal->save();
 
         return redirect(route('jadwal.index'))->with('success', 'Jadwal berhasil di update');
     }

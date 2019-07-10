@@ -15,7 +15,7 @@ class CreateDosensTable extends Migration
     {
         Schema::create('dosen', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kd_dosen', 10)->unique();
+            $table->string('kd_dosen', 10);#->unique();
             $table->string('nama_dosen');
             $table->timestamps();
         });

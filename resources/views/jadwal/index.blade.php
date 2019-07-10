@@ -6,13 +6,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             {{-- table-hover --}}
-            <table class="table table-bordered">
+            <table class="table table-striped table-responsive">
                 <tr>
                     <td>Hari</td>
                     <td>Mata Kuliah</td>
                     <td>SKS</td>
                     <td>Dosen</td>
                     <td>Ruangan</td>
+                    <td>Created at</td>
                     @auth
                         <td>
                             <a href=" {{ route('jadwal.create') }}">Add new</a>
@@ -28,6 +29,7 @@
                     <td>{{$item->makul->sks}}</td>
                     <td>{{$item->dosen->nama_dosen}}</td>
                     <td>{{$item->ruangan->nama_ruangan}}</td>
+                    <td>{{$item->created_at->format('d/m/Y')}}</td>
 
                     @auth
                     <td>
@@ -46,7 +48,6 @@
                         </div>
                     </td>
                     @endauth
-
                 </tr>
                 @endforeach
                 
@@ -56,3 +57,9 @@
 </div>
 @endsection
 
+@guest
+@section('autoscroll')
+<script src="https://demos.daveismyname.blog/autoscroll/jquery.js"></script>
+<script src="https://demos.daveismyname.blog/autoscroll/app.js"></script>
+@endsection
+@endguest

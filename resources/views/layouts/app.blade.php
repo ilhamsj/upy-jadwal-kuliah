@@ -24,8 +24,8 @@
 </head>
 <body>
     <div id="app">
-        {{-- 
-        <nav class="navbar navbar-expand-md navbar-light bg-white">
+ 
+        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -81,10 +81,11 @@
                 </div>
             </div>
         </nav>
- --}}
+ 
         <main class="py-4" style="min-height:100vh">
             @yield('content')
         </main>
     </div>
+    @yield('autoscroll')
 </body>
 </html>

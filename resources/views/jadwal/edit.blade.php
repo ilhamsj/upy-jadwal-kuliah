@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Tambah dosen</div>
+                <div class="card-header">Edit Jadwal Kuliah</div>
                 <div class="card-body">
                     <form action="{{ route('jadwal.update', $jadwal->id) }}" method="post">
                         @method('PATCH')
@@ -25,10 +25,10 @@
                             </select>
                         </div>
 
-{{-- 
+ 
                         <div class="form-group">
                             <label for="id_dosen">Dosen</label>
-                            <select name="id_dosen" id="" class="form-control">
+                            <select name="id_dosen" class="form-control">
                                 <option value="{{ $jadwal->dosen->id }}" selected>{{ $jadwal->dosen->nama_dosen }}</option>
                                 @foreach ($dosen as $item)
                                     <option value="{{$item->id}}">{{$item->nama_dosen}}</option>
@@ -38,7 +38,7 @@
 
                         <div class="form-group">
                             <label for="id_ruangan">Ruangan</label>
-                            <select name="id_ruangan" id="" class="form-control">
+                            <select name="id_ruangan" class="form-control">
                                 <option value="{{ $jadwal->ruangan->id }}" selected>{{ $jadwal->ruangan->nama_ruangan }}</option>
                                 @foreach ($ruangan as $item)
                                     <option value="{{$item->id}}">{{$item->nama_ruangan}}</option>
@@ -52,15 +52,15 @@
 
                         <div class="form-group">
                             <label for="hari">Hari</label>
-                            <select name="hari" id="" class="form-control">
+                            <select name="hari" class="form-control">
                                 <option value="{{ $jadwal->hari }}" selected>{{ $jadwal->hari }}</option>
                                 @for ($i = 0; $i < count($day); $i++)
                                     <option value="{{ $day[$i] }}">{{ $day[$i] }}</option>
                                 @endfor
                             </select>
                         </div>
- --}}
-                        <button type="submit" class="btn btn-primary">save</button>
+ 
+                        <button type="submit" class="btn btn-success btn-block">save</button>
                     </form>
                 </div>
             </div>
