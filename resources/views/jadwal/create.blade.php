@@ -20,6 +20,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="id_kelas">Kelas</label>
+                            <select name="id_kelas" class="form-control">
+                                @foreach ($kelas as $item)
+                                    <option value="{{$item->id}}">{{$item->nama_kelas}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="id_dosen">Dosen</label>
                             <select name="id_dosen" id="" class="form-control">
                                 @foreach ($dosen as $item)

@@ -11,15 +11,11 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('mata-kuliah', 'MataKuliahController');
 Route::resource('ruangan', 'RuanganController');
 Route::resource('dosen', 'DosenController');
 Route::resource('jadwal', 'JadwalKuliahController');
-Auth::routes();
-
-Route::get('/', 'HomeController@index')->name('home');
-Route::resource('jadwal', 'JadwalKuliahController');
+Route::resource('kelas', 'KelasController');

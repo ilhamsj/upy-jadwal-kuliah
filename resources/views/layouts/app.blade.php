@@ -47,6 +47,9 @@
                             <a class="nav-link" href="{{ route('home') }}">Details</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('kelas.index') }}">Kelas</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('jadwal.index') }}">Jadwal</a>
                         </li>
                         <!-- Authentication Links -->

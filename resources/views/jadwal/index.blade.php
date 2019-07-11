@@ -11,6 +11,7 @@
                     <td>Hari</td>
                     <td>Mata Kuliah</td>
                     <td>SKS</td>
+                    <td>Kelas</td>
                     <td>Dosen</td>
                     <td>Ruangan</td>
                     <td>Waktu</td>
@@ -29,6 +30,7 @@
                     <td>{{$item->hari}}</td>
                     <td>{{$item->makul->nama_mata_kuliah}}</td>
                     <td>{{$item->makul->sks}}</td>
+                    <td>{{$item->kelas->nama_kelas}}</td>
                     <td>{{$item->dosen->nama_dosen}}</td>
                     <td>{{$item->ruangan->nama_ruangan}}</td>
                     <td>{{$item->pukul}}</td>

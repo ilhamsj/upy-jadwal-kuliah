@@ -12,6 +12,7 @@ class JadwalKuliah extends Model
         'id_mata_kuliah', 
         'id_dosen',
         'id_ruangan',
+        'id_kelas',
         'hari',
         'pukul',
         'status',
@@ -28,5 +29,9 @@ class JadwalKuliah extends Model
 
     public function ruangan(){
         return $this->belongsTo(Ruangan::class, 'id_ruangan');
+    }
+
+    public function kelas(){
+        return $this->belongsTo(Kelas::class, 'id_kelas');
     }
 }

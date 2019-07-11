@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             MataKuliahTableSeeder::class,
             DosenTableSeeder::class,
             RuanganTableSeeder::class,
-            JadwalTableSeeder::class
+            // JadwalTableSeeder::class,
+            KelasTableSeeder::class,
         ]);
     }
 }

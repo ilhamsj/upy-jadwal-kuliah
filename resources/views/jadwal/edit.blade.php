@@ -25,6 +25,15 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <label for="id_kelas">Kelas</label>
+                            <select name="id_kelas" class="form-control">
+                                <option value="{{ $jadwal->kelas->id }}" selected>{{ $jadwal->kelas->nama_kelas }}</option>
+                                @foreach ($kelas as $item)
+                                    <option value="{{$item->id}}">{{$item->nama_kelas}}</option>
+                                @endforeach
+                            </select>
+                        </div>
  
                         <div class="form-group">
                             <label for="id_dosen">Dosen</label>

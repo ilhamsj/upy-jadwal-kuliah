@@ -7,6 +7,7 @@ use App\JadwalKuliah;
 use App\MataKuliah;
 use App\Dosen;
 use App\Ruangan;
+use App\Kelas;
 use Carbon\Carbon;
 
 
@@ -23,7 +24,7 @@ class JadwalKuliahController extends Controller
         // $date = Carbon::now()->toRfc850String();
         // $date = Carbon::now();
         $date = Carbon::today()->isoFormat('dddd');
-        $jadwal = JadwalKuliah::with(['makul', 'dosen', 'ruangan'])->where('hari',  date('l'))->get();
+        $jadwal = JadwalKuliah::with(['makul', 'dosen', 'ruangan', 'kelas'])->where('hari',  date('l'))->get();
         return view('jadwal.index', [
             'jadwal' => $jadwal,
         ]);
@@ -39,11 +40,13 @@ class JadwalKuliahController extends Controller
         $makul      = MataKuliah::all();
         $dosen      = Dosen::all();
         $ruangan    = Ruangan::all();
+        $kelas      = Kelas::all();
 
         return view('jadwal.create', [
             'makul'     => $makul,
             'dosen'     => $dosen,
-            'ruangan'   => $ruangan
+            'ruangan'   => $ruangan,
+            'kelas'     => $kelas,
         ]);
     }
 
@@ -55,11 +58,12 @@ class JadwalKuliahController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->pukul);
+        // dd($request->id_kelas);
         $jadwal = new JadwalKuliah([
             'id_mata_kuliah'    => $request->get('id_makul'),
             'id_dosen'          => $request->get('id_dosen'),
             'id_ruangan'        => $request->get('id_ruangan'),
+            'id_kelas'          => $request->get('id_kelas'),
             'hari'              => $request->get('hari'),
             'pukul'             => $request->get('pukul'),
         ]);
@@ -90,13 +94,15 @@ class JadwalKuliahController extends Controller
         $makul      = MataKuliah::all();
         $dosen      = Dosen::all();
         $ruangan    = Ruangan::all();
+        $kelas      = Kelas::all();
         
         $jadwal = JadwalKuliah::find($id);
         return view('jadwal.edit', [
             'jadwal'    => $jadwal,
             'makul'     => $makul,
             'dosen'     => $dosen,
-            'ruangan'   => $ruangan
+            'ruangan'   => $ruangan,
+            'kelas'     => $kelas,
         ]);
     }
 
@@ -114,6 +120,7 @@ class JadwalKuliahController extends Controller
         $jadwal->id_mata_kuliah = $request->id_makul;
         $jadwal->id_dosen = $request->id_dosen;
         $jadwal->id_ruangan = $request->id_ruangan;
+        $jadwal->id_kelas = $request->id_kelas;
         $jadwal->hari = $request->hari;
         $jadwal->status = $request->status;
         $jadwal->save();
