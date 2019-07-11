@@ -23,9 +23,7 @@ class JadwalKuliahController extends Controller
         // $date = Carbon::now()->toRfc850String();
         // $date = Carbon::now();
         $date = Carbon::today()->isoFormat('dddd');
-        // dd($date);
         $jadwal = JadwalKuliah::with(['makul', 'dosen', 'ruangan'])->where('hari',  date('l'))->get();
-
         return view('jadwal.index', [
             'jadwal' => $jadwal,
         ]);

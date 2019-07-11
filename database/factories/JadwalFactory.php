@@ -10,6 +10,7 @@ $factory->define(JadwalKuliah::class, function (Faker $faker) {
         'id_mata_kuliah' => $faker->numberBetween($min = 1, $max = 5),
         'id_dosen' => $faker->numberBetween($min = 1, $max = 5),
         'id_ruangan' => $faker->numberBetween($min = 1, $max = 5),
-        'hari' => $faker->dayOfWeek($max = 'now')
+        'hari' => $faker->dayOfWeek($max = 'now'),
+        'pukul' => $faker->time($format = 'H:i:s', $max = 'now'),
     ];
 });
