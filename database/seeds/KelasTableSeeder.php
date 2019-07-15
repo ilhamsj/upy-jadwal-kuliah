@@ -12,6 +12,6 @@ class KelasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Kelas::class, 5)->create();
+        factory(Kelas::class, 100)->create();
     }
 }

@@ -12,6 +12,6 @@ class MataKuliahTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(MataKuliah::class, 5)->create();   
+        factory(MataKuliah::class, 100)->create();   
     }
 }

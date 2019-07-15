@@ -12,6 +12,6 @@ class RuanganTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Ruangan::class, 5)->create();
+        factory(Ruangan::class, 100)->create();
     }
 }

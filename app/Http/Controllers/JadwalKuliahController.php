@@ -23,8 +23,12 @@ class JadwalKuliahController extends Controller
         // $date = Carbon::now()->toDateTimeString();
         // $date = Carbon::now()->toRfc850String();
         // $date = Carbon::now();
+        $pukul = Carbon::now()->format('H:i s');
         $date = Carbon::today()->isoFormat('dddd');
-        $jadwal = JadwalKuliah::with(['makul', 'dosen', 'ruangan', 'kelas'])->where('hari',  date('l'))->get();
+
+        $jadwal = JadwalKuliah::orderBy('pukul', 'desc')
+                                ->where('hari', date('l'))->get();
+                                //->where('pukul', '>=', $pukul)->get();
         return view('jadwal.index', [
             'jadwal' => $jadwal,
         ]);
@@ -123,6 +127,7 @@ class JadwalKuliahController extends Controller
         $jadwal->id_kelas = $request->id_kelas;
         $jadwal->hari = $request->hari;
         $jadwal->status = $request->status;
+        $jadwal->pukul = $request->pukul;
         $jadwal->save();
 
         return redirect(route('jadwal.index'))->with('success', 'Jadwal berhasil di update');

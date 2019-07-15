@@ -79,7 +79,12 @@
                                 @endfor
                             </select>
                         </div>
-     
+
+                        <div class="form-group">
+                            <label for="pukul">Waktu Kuliah</label>
+                            <input type="time" name="pukul" value="{{$jadwal->pukul}}" class="form-control" required>
+                        </div>
+                        
                         <button type="submit" class="btn btn-success btn-block">save</button>
                     </form>
                 </div>

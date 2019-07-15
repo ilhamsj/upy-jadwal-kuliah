@@ -12,6 +12,6 @@ class DosenTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Dosen::class, 5)->create();
+        factory(Dosen::class, 100)->create();
     }
 }

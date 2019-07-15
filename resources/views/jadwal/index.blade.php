@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md">
             {{-- table-hover --}}
             <table class="table table-striped">
                 <tr>
@@ -16,7 +16,6 @@
                     <td>Ruangan</td>
                     <td>Waktu</td>
                     <td>Status</td>
-                    <td>Created at</td>
                     @auth
                         <td>
                             <a href=" {{ route('jadwal.create') }}">Add new</a>
@@ -35,7 +34,6 @@
                     <td>{{$item->ruangan->nama_ruangan}}</td>
                     <td>{{$item->pukul}}</td>
                     <td>{{$item->status}}</td>
-                    <td>{{$item->created_at->format('d/m/Y')}}</td>
 
                     @auth
                     <td>
